@@ -1,34 +1,34 @@
-package com.makerspace.makerspaceapp.model;
+package com.makerspace.makerspaceapp.dto;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-public class Project {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class ProjectResponse {
     private Long projectId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "creator_id", nullable = false)
-    private User creator;
-
-    @Column(nullable = false)
+    private Long creatorId;
+    private String creatorName;
     private String title;
-
-    @Column(length = 2000)
     private String description;
-
     private String category;
     private LocalDate startDate;
     private LocalDate endDate;
-
-    @Column(nullable = false)
     private String status;
 
     // Constructors
-    public Project() {}
+    public ProjectResponse() {}
+
+    public ProjectResponse(Long projectId, Long creatorId, String creatorName, String title, 
+                          String description, String category, LocalDate startDate, 
+                          LocalDate endDate, String status) {
+        this.projectId = projectId;
+        this.creatorId = creatorId;
+        this.creatorName = creatorName;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.status = status;
+    }
 
     // Getters and Setters
     public Long getProjectId() {
@@ -39,12 +39,20 @@ public class Project {
         this.projectId = projectId;
     }
 
-    public User getCreator() {
-        return creator;
+    public Long getCreatorId() {
+        return creatorId;
     }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getCreatorName() {
+        return creatorName;
+    }
+
+    public void setCreatorName(String creatorName) {
+        this.creatorName = creatorName;
     }
 
     public String getTitle() {

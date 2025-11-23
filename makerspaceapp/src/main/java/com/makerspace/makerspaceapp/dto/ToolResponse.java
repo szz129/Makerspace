@@ -1,18 +1,9 @@
-package com.makerspace.makerspaceapp.model;
+package com.makerspace.makerspaceapp.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-public class Tool {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class ToolResponse {
     private Long toolId;
-
-    @ManyToOne
-    @JoinColumn(name = "makerspace_id", referencedColumnName = "makerspaceId")
-    private Makerspace makerspace;
-
+    private Long makerspaceId;
+    private String makerspaceName;
     private String name;
     private String category;
     private String condition;
@@ -20,7 +11,19 @@ public class Tool {
     private String imageUrl;
 
     // Constructors
-    public Tool() {}
+    public ToolResponse() {}
+
+    public ToolResponse(Long toolId, Long makerspaceId, String makerspaceName, String name, 
+                       String category, String condition, String availabilityStatus, String imageUrl) {
+        this.toolId = toolId;
+        this.makerspaceId = makerspaceId;
+        this.makerspaceName = makerspaceName;
+        this.name = name;
+        this.category = category;
+        this.condition = condition;
+        this.availabilityStatus = availabilityStatus;
+        this.imageUrl = imageUrl;
+    }
 
     // Getters and Setters
     public Long getToolId() {
@@ -31,12 +34,20 @@ public class Tool {
         this.toolId = toolId;
     }
 
-    public Makerspace getMakerspace() {
-        return makerspace;
+    public Long getMakerspaceId() {
+        return makerspaceId;
     }
 
-    public void setMakerspace(Makerspace makerspace) {
-        this.makerspace = makerspace;
+    public void setMakerspaceId(Long makerspaceId) {
+        this.makerspaceId = makerspaceId;
+    }
+
+    public String getMakerspaceName() {
+        return makerspaceName;
+    }
+
+    public void setMakerspaceName(String makerspaceName) {
+        this.makerspaceName = makerspaceName;
     }
 
     public String getName() {

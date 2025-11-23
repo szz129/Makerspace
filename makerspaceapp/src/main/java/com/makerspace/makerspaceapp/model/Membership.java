@@ -1,29 +1,81 @@
 package com.makerspace.makerspaceapp.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 import java.time.LocalDate;
 
-
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Membership {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long membershipId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long membershipId;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-@ManyToOne
-@JoinColumn(name = "user_id")
-private user user;
+    private String planType;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private String status;
+    private Double price;
 
+    // Constructors
+    public Membership() {}
 
-private String planType; // MONTHLY, YEARLY
-private LocalDate startDate;
-private LocalDate endDate;
-private String status; // ACTIVE, EXPIRED
-private Double price;
+    // Getters and Setters
+    public Long getMembershipId() {
+        return membershipId;
+    }
+
+    public void setMembershipId(Long membershipId) {
+        this.membershipId = membershipId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getPlanType() {
+        return planType;
+    }
+
+    public void setPlanType(String planType) {
+        this.planType = planType;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

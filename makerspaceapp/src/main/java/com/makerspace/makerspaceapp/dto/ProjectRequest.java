@@ -1,50 +1,46 @@
-package com.makerspace.makerspaceapp.model;
+package com.makerspace.makerspaceapp.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-@Entity
-public class Project {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long projectId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "creator_id", nullable = false)
-    private User creator;
-
-    @Column(nullable = false)
+public class ProjectRequest {
+    
+    @NotNull(message = "Creator ID is required")
+    private Long creatorId;
+    
+    @NotBlank(message = "Title is required")
     private String title;
-
-    @Column(length = 2000)
+    
+    @NotBlank(message = "Description is required")
     private String description;
-
+    
     private String category;
     private LocalDate startDate;
     private LocalDate endDate;
-
-    @Column(nullable = false)
     private String status;
 
     // Constructors
-    public Project() {}
+    public ProjectRequest() {}
+
+    public ProjectRequest(Long creatorId, String title, String description, String category, 
+                         LocalDate startDate, LocalDate endDate, String status) {
+        this.creatorId = creatorId;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.status = status;
+    }
 
     // Getters and Setters
-    public Long getProjectId() {
-        return projectId;
+    public Long getCreatorId() {
+        return creatorId;
     }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
-
-    public User getCreator() {
-        return creator;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
     }
 
     public String getTitle() {

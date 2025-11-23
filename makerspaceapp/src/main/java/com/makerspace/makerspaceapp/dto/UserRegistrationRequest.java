@@ -1,36 +1,31 @@
-package com.makerspace.makerspaceapp.model;
+package com.makerspace.makerspaceapp.dto;
 
-import java.time.LocalDateTime;
-import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-@Entity
-@Table(name = "users")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
-
+public class UserRegistrationRequest {
+    
+    @NotBlank(message = "Name is required")
     private String name;
-
-    @Column(unique = true, nullable = false)
+    
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email should be valid")
     private String email;
-
+    
+    @NotBlank(message = "Password is required")
+    @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
+    
     private String role;
     private String skills;
     private String phone;
-    private LocalDateTime createdAt;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
 
     // Constructors
-    public User() {}
+    public UserRegistrationRequest() {}
 
-    public User(String name, String email, String password, String role, String skills, String phone) {
+    public UserRegistrationRequest(String name, String email, String password, String role, 
+                                  String skills, String phone) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -40,14 +35,6 @@ public class User {
     }
 
     // Getters and Setters
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
     public String getName() {
         return name;
     }
@@ -94,13 +81,5 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }
