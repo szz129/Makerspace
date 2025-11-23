@@ -1,15 +1,7 @@
 package com.makerspace.makerspaceapp.model;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class MaintenanceLog {
@@ -27,7 +19,9 @@ public class MaintenanceLog {
     @Column(length = 2000)
     private String description;
     
-    private LocalDateTime date;
+    @Column(name = "maintenance_date")  // Changed column name
+    private LocalDateTime maintenanceDate;  // Changed field name from 'date' to 'maintenanceDate'
+    
     private String status;
 
     // Constructors
@@ -66,12 +60,12 @@ public class MaintenanceLog {
         this.description = description;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getMaintenanceDate() {  // Changed getter
+        return maintenanceDate;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setMaintenanceDate(LocalDateTime maintenanceDate) {  // Changed setter
+        this.maintenanceDate = maintenanceDate;
     }
 
     public String getStatus() {
