@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 @Entity
 public class Inventory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inventory_seq")
+    @SequenceGenerator(name = "inventory_seq", sequenceName = "INVENTORY_SEQ", allocationSize = 1)
     private Long itemId;
 
     @ManyToOne

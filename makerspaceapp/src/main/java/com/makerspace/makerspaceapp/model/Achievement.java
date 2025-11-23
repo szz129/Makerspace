@@ -1,12 +1,20 @@
 package com.makerspace.makerspaceapp.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Achievement {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "achievement_seq")
+    @SequenceGenerator(name = "achievement_seq", sequenceName = "ACHIEVEMENT_SEQ", allocationSize = 1)
     private Long achievementId;
 
     @ManyToOne

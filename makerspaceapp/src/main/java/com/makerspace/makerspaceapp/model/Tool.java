@@ -1,12 +1,19 @@
 package com.makerspace.makerspaceapp.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Tool {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tool_seq")
+    @SequenceGenerator(name = "tool_seq", sequenceName = "TOOL_SEQ", allocationSize = 1)
     private Long toolId;
 
     @ManyToOne

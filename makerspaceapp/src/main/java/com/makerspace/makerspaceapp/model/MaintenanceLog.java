@@ -1,12 +1,21 @@
 package com.makerspace.makerspaceapp.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class MaintenanceLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maintenance_seq")
+    @SequenceGenerator(name = "maintenance_seq", sequenceName = "MAINTENANCE_LOG_SEQ", allocationSize = 1)
     private Long logId;
 
     @ManyToOne

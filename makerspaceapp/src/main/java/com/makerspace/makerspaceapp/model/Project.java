@@ -7,7 +7,8 @@ import java.time.LocalDate;
 public class Project {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq")
+    @SequenceGenerator(name = "project_seq", sequenceName = "PROJECT_SEQ", allocationSize = 1)
     private Long projectId;
 
     @ManyToOne(fetch = FetchType.LAZY)
