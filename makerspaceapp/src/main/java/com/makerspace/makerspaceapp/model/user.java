@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 @Table(name = "users")
@@ -26,7 +28,11 @@ public class User {
     private String email;
 
     private String password;
-    private String role;
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")  // foreign key column
+    private Role role;
+
     private String skills;
     private String phone;
     private LocalDateTime createdAt;
@@ -36,10 +42,11 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
-    // Constructors
+    // Default Constructor
     public User() {}
 
-    public User(String name, String email, String password, String role, String skills, String phone) {
+    // Updated Constructor
+    public User(String name, String email, String password, Role role, String skills, String phone) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -48,7 +55,7 @@ public class User {
         this.phone = phone;
     }
 
-    // Getters and Setters
+    // Getters & Setters
     public Long getUserId() {
         return userId;
     }
@@ -81,11 +88,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

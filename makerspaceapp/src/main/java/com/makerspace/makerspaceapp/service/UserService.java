@@ -1,22 +1,31 @@
 package com.makerspace.makerspaceapp.service;
 
+import com.makerspace.makerspaceapp.exception.ResourceNotFoundException;
 import com.makerspace.makerspaceapp.model.User;
 import com.makerspace.makerspaceapp.repository.UserRepository;
-import com.makerspace.makerspaceapp.exception.ResourceNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Transactional
     public User save(User user) {
+        // Hash password before saving
+        if (user.getPassword() != null) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        }
         return userRepository.save(user);
     }
 
@@ -37,7 +46,7 @@ public class UserService {
     public User update(Long id, User updatedUser) {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", id));
-        
+
         if (updatedUser.getName() != null) {
             existingUser.setName(updatedUser.getName());
         }
@@ -53,7 +62,11 @@ public class UserService {
         if (updatedUser.getPhone() != null) {
             existingUser.setPhone(updatedUser.getPhone());
         }
-        
+        // Hash updated password if provided
+        if (updatedUser.getPassword() != null) {
+            existingUser.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
+        }
+
         return userRepository.save(existingUser);
     }
 
