@@ -26,7 +26,7 @@ public class Tool {
     private String availabilityStatus;
     private String imageUrl;
 
-    // Constructors
+    // Constructorsفے
     public Tool() {}
 
     // Getters and Setters
