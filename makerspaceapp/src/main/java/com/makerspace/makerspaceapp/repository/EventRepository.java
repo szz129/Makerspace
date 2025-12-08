@@ -10,21 +10,21 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
 
-    // Get events by makerspace (optional but useful)
+    // By makerspace
     List<Event> findByMakerspace_MakerspaceId(Long makerspaceId);
 
-    // Search event by title (case-insensitive)
+    // Search by title
     List<Event> findByTitleContainingIgnoreCase(String title);
 
-    // Filter by event type (workshop, training, competition)
+    // By type
     List<Event> findByType(String type);
 
-    // List only upcoming events
-    List<Event> findByDateAfter(LocalDate date);
+    // Upcoming events
+    List<Event> findByEventDateAfter(LocalDate date);
 
-    // List only past events
-    List<Event> findByDateBefore(LocalDate date);
+    // Past events
+    List<Event> findByEventDateBefore(LocalDate date);
 
-    // Get events created by a specific admin/user
+    // By creator
     List<Event> findByCreatedBy_UserId(Long userId);
 }

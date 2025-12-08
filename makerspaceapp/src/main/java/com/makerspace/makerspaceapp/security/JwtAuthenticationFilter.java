@@ -13,12 +13,23 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
     private final UserDetailsService userDetailsService;
+    
+    // List of public endpoints that don't need JWT authentication
+    private static final List<String> PUBLIC_ENDPOINTS = List.of(
+        "/api/auth/",
+        "/api/users/register",
+        "/api/users",
+        "/actuator/",
+        "/swagger-ui/",
+        "/v3/api-docs/"
+    );
 
     public JwtAuthenticationFilter(JwtUtil jwtUtil, UserDetailsService userDetailsService) {
         this.jwtUtil = jwtUtil;
@@ -29,6 +40,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, 
                                     HttpServletResponse response, 
                                     FilterChain filterChain) throws ServletException, IOException {
+        
+        String requestURI = request.getRequestURI();
+        
+        // Skip JWT validation for public endpoints
+        if (isPublicEndpoint(requestURI)) {
+            filterChain.doFilter(request, response);
+            return;
+        }
         
         String authHeader = request.getHeader("Authorization");
         
@@ -48,8 +67,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
-        }
+        } 
+        // If no Authorization header, just continue - Spring Security will handle authorization
+        // DO NOT throw exception or block the request here
         
         filterChain.doFilter(request, response);
+    }
+    
+    private boolean isPublicEndpoint(String uri) {
+        return PUBLIC_ENDPOINTS.stream().anyMatch(uri::startsWith);
     }
 }

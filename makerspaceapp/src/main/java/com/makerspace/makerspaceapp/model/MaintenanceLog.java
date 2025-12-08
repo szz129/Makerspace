@@ -19,11 +19,22 @@ public class MaintenanceLog {
     @Column(length = 2000)
     private String description;
     
-    @Column(name = "maintenance_date")  // Changed column name
-    private LocalDateTime maintenanceDate;  // Changed field name from 'date' to 'maintenanceDate'
+    @Column(name = "maintenance_date")  
+    private LocalDateTime maintenanceDate; 
     
-    private String status;
-
+    private String status;  // "OPEN", "IN_PROGRESS", "DONE"
+    
+    /* EXPLANATION:
+     * Tracks tool repairs and maintenance
+     * 
+     * Example:
+     * Tool: "3D Printer"
+     * - Issue: "Nozzle clogged"
+     * - Technician: "Ahmed Khan"
+     * - Status: "IN_PROGRESS"
+     * - Date: Dec 5, 2024
+     */
+    
     // Constructors
     public MaintenanceLog() {}
 

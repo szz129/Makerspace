@@ -23,8 +23,8 @@ public class Payment {
     private User user;
 
     private Double amount;
-    private String paymentMethod;
-    private String status;
+    private String paymentMethod;  // "CREDIT_CARD", "DEBIT_CARD", "CASH"
+    private String status;  // "PENDING", "COMPLETED", "FAILED"
     private LocalDateTime paymentDate;
 
     @PrePersist
@@ -34,6 +34,20 @@ public class Payment {
         }
     }
 
+    /* EXPLANATION:
+     * Automatically sets payment date when created
+     * 
+     * if (this.paymentDate == null) check allows:
+     * - Auto-set if not provided
+     * - Manual override if needed (for backdating)
+     * 
+     * Example:
+     * Payment p = new Payment();
+     * p.setAmount(5000.0);
+     * paymentRepository.save(p);
+     * → paymentDate automatically set to current time
+     */
+    
     // Constructors
     public Payment() {}
 

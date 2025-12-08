@@ -12,19 +12,19 @@ public class ToolRequest {
     private String name;
     
     private String category;
-    private String condition;
+    private String toolcondition;
     private String availabilityStatus;
     private String imageUrl;
 
     // Constructors
     public ToolRequest() {}
 
-    public ToolRequest(Long makerspaceId, String name, String category, String condition, 
+    public ToolRequest(Long makerspaceId, String name, String category, String toolcondition, 
                       String availabilityStatus, String imageUrl) {
         this.makerspaceId = makerspaceId;
         this.name = name;
         this.category = category;
-        this.condition = condition;
+        this.toolcondition = toolcondition;
         this.availabilityStatus = availabilityStatus;
         this.imageUrl = imageUrl;
     }
@@ -54,12 +54,12 @@ public class ToolRequest {
         this.category = category;
     }
 
-    public String getCondition() {
-        return condition;
+    public String gettoolcondition() {
+        return toolcondition;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void settoolcondition(String toolcondition) {
+        this.toolcondition = toolcondition;
     }
 
     public String getAvailabilityStatus() {

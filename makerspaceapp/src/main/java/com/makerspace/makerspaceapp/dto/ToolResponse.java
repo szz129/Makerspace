@@ -6,7 +6,7 @@ public class ToolResponse {
     private String makerspaceName;
     private String name;
     private String category;
-    private String condition;
+    private String toolcondition;
     private String availabilityStatus;
     private String imageUrl;
 
@@ -14,13 +14,13 @@ public class ToolResponse {
     public ToolResponse() {}
 
     public ToolResponse(Long toolId, Long makerspaceId, String makerspaceName, String name, 
-                       String category, String condition, String availabilityStatus, String imageUrl) {
+                       String category, String toolcondition, String availabilityStatus, String imageUrl) {
         this.toolId = toolId;
         this.makerspaceId = makerspaceId;
         this.makerspaceName = makerspaceName;
         this.name = name;
         this.category = category;
-        this.condition = condition;
+        this.toolcondition = toolcondition;
         this.availabilityStatus = availabilityStatus;
         this.imageUrl = imageUrl;
     }
@@ -66,12 +66,12 @@ public class ToolResponse {
         this.category = category;
     }
 
-    public String getCondition() {
-        return condition;
+    public String gettoolcondition() {
+        return toolcondition;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void settoolcondition(String toolcondition) {
+        this.toolcondition = toolcondition;
     }
 
     public String getAvailabilityStatus() {

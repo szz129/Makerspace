@@ -17,16 +17,27 @@ public class UserProfile {
     @SequenceGenerator(name = "user_profile_seq", sequenceName = "USER_PROFILE_SEQ", allocationSize = 1)
     private Long profileId;
 
-    @OneToOne
+    @OneToOne // ← ONE user has ONE profile
     @JoinColumn(name = "user_id", referencedColumnName = "userId")
     private User user;
+    /* EXPLANATION:
+     * @OneToOne vs @ManyToOne
+     * 
+     * @OneToOne: Each user has exactly ONE profile
+     * User 1 → Profile 1
+     * User 2 → Profile 2
+     * 
+     * If it were @ManyToOne:
+     * User 1 → Profile 1
+     * User 2 → Profile 1 ← Multiple users could share profile (wrong!)
+     */
 
     @Column(length = 1000)
     private String bio;
 
-    private String profilePicture;
+    private String profilePicture;  // URL to image
     private String address;
-    private String socialLinks;
+    private String socialLinks;// JSON string with social media links
 
     // Constructors
     public UserProfile() {}

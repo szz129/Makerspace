@@ -15,6 +15,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     List<Booking> findByMakerspace_MakerspaceId(Long makerspaceId);
     List<Booking> findByStatus(String status);
     
+        // Custom query to check if new booking overlaps with existing ones
     @Query("SELECT b FROM Booking b WHERE b.tool.toolId = :toolId " +
            "AND b.status != 'CANCELLED' " +
            "AND ((b.startTime <= :endTime AND b.endTime >= :startTime))")

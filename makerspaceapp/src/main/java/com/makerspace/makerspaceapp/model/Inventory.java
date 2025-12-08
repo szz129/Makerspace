@@ -1,6 +1,12 @@
 package com.makerspace.makerspaceapp.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Inventory {
@@ -13,12 +19,21 @@ public class Inventory {
     @JoinColumn(name = "makerspace_id")
     private Makerspace makerspace;
 
-    private String itemName;
-    private Integer quantity;
-    private String unit;
-    private Integer restockLevel;
+    private String itemName;  // "PLA Filament", "Solder Wire"
+    private Integer quantity;  // Current stock
+    private String unit;  // "kg", "meters", "pieces"
+    private Integer restockLevel;  // Alert when quantity drops below this
     private String supplier;
-
+    /* EXPLANATION:
+     * Tracks consumable materials
+     * 
+     * Example:
+     * Item: "PLA Filament"
+     * - quantity: 5 kg
+     * - restockLevel: 2 kg
+     * - When quantity ≤ 2 → Alert: "Time to reorder!"
+     */
+    
     // Constructors
     public Inventory() {}
 

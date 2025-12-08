@@ -1,43 +1,59 @@
 package com.makerspace.makerspaceapp.service;
 
-import com.makerspace.makerspaceapp.model.Event;
-import com.makerspace.makerspaceapp.repository.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.makerspace.makerspaceapp.model.Event;
+import com.makerspace.makerspaceapp.repository.EventRepository;
 
 @Service
 public class EventService {
 
-    @Autowired
-    private EventRepository eventRepository;
+    private final EventRepository eventRepository;
 
-    // Create new event
+    public EventService(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
+    }
+
+    // =========================
+    // CREATE EVENT (SAFE)
+    // =========================
+    @Transactional
     public Event createEvent(Event event) {
         return eventRepository.save(event);
     }
 
-    // Get event by ID
+    // =========================
+    // GET EVENT BY ID
+    // =========================
+    @Transactional(readOnly = true)
     public Event getEventById(Long id) {
         return eventRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Event not found with ID: " + id));
     }
 
-    // Get all events
+    // =========================
+    // GET ALL EVENTS
+    // =========================
+    @Transactional(readOnly = true)
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
 
-    // Update event
+    // =========================
+    // UPDATE EVENT (SAFE)
+    // =========================
+    @Transactional
     public Event updateEvent(Long id, Event updatedEvent) {
         Event existing = getEventById(id);
 
         existing.setTitle(updatedEvent.getTitle());
         existing.setDescription(updatedEvent.getDescription());
         existing.setType(updatedEvent.getType());
-        existing.setDate(updatedEvent.getDate());
+        existing.setEventDate(updatedEvent.getEventDate());
         existing.setLocation(updatedEvent.getLocation());
         existing.setCapacity(updatedEvent.getCapacity());
         existing.setMakerspace(updatedEvent.getMakerspace());
@@ -46,37 +62,44 @@ public class EventService {
         return eventRepository.save(existing);
     }
 
-    // Delete event
+    // =========================
+    // DELETE EVENT (SAFE)
+    // =========================
+    @Transactional
     public void deleteEvent(Long id) {
         eventRepository.deleteById(id);
     }
 
-    // List events by makerspace
+    // =========================
+    // FILTER METHODS (READ ONLY)
+    // =========================
+
+    @Transactional(readOnly = true)
     public List<Event> getEventsByMakerspace(Long makerspaceId) {
         return eventRepository.findByMakerspace_MakerspaceId(makerspaceId);
     }
 
-    // Search events by title
+    @Transactional(readOnly = true)
     public List<Event> searchEventsByTitle(String title) {
         return eventRepository.findByTitleContainingIgnoreCase(title);
     }
 
-    // Filter by event type (workshop, training, competition)
+    @Transactional(readOnly = true)
     public List<Event> filterByType(String type) {
         return eventRepository.findByType(type);
     }
 
-    // Upcoming events
+    @Transactional(readOnly = true)
     public List<Event> getUpcomingEvents() {
-        return eventRepository.findByDateAfter(LocalDate.now());
+        return eventRepository.findByEventDateAfter(LocalDate.now());
     }
 
-    // Past events
+    @Transactional(readOnly = true)
     public List<Event> getPastEvents() {
-        return eventRepository.findByDateBefore(LocalDate.now());
+        return eventRepository.findByEventDateBefore(LocalDate.now());
     }
 
-    // Events created by a specific user/admin
+    @Transactional(readOnly = true)
     public List<Event> getEventsByCreator(Long userId) {
         return eventRepository.findByCreatedBy_UserId(userId);
     }

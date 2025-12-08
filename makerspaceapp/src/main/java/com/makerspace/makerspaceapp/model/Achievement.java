@@ -21,10 +21,20 @@ public class Achievement {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private String title;
+    private String title;  // "First Project", "10 Bookings"
     private String description;
     private LocalDate dateEarned;
-    private String type;
+    private String type;  // "milestone", "skill", "contribution"
+    
+    /* EXPLANATION:
+     * Gamification feature
+     * Award badges/achievements to users
+     * 
+     * Example achievements:
+     * - "Made first booking"
+     * - "Completed 5 projects"
+     * - "Workshop attendee"
+     */
 
     // Constructors
     public Achievement() {}

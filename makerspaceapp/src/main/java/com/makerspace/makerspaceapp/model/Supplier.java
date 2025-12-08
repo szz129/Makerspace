@@ -15,7 +15,11 @@ public class Supplier {
     private String contact;
     private String email;
     private String address;
-    private Double rating;
+    private Double rating;  // 0.0 to 5.0
+    /* EXPLANATION:
+     * Catalog of vendors for inventory items
+     * Can track supplier performance (rating)
+     */
 
     // Constructors
     public Supplier() {}

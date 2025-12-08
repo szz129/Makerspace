@@ -14,6 +14,23 @@ public class Project {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id", nullable = false)
     private User creator;
+    /* EXPLANATION:
+     * fetch = FetchType.LAZY
+     * Don't load creator immediately when loading project
+     * Only load when you call project.getCreator()
+     * 
+     * Why?
+     * Performance! If you load 100 projects, you don't want
+     * 100 separate queries to load each creator.
+     * 
+     * LAZY:
+     * 1. SELECT * FROM project;  ← 1 query
+     * 2. When needed: SELECT * FROM users WHERE user_id = ?;
+     * 
+     * EAGER (if used):
+     * SELECT p.*, u.* FROM project p JOIN users u ON p.creator_id = u.user_id;
+     * ← Loads everything immediately
+     */
 
     @Column(nullable = false)
     private String title;
@@ -27,7 +44,11 @@ public class Project {
 
     @Column(nullable = false)
     private String status;
-
+    /* @Column(nullable = false)
+     * Database enforces NOT NULL
+     * Trying to save project without title → Exception
+     */
+    
     // Constructors
     public Project() {}
 

@@ -1,5 +1,6 @@
 package com.makerspace.makerspaceapp.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,21 +13,50 @@ import jakarta.persistence.SequenceGenerator;
 public class Tool {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tool_seq")
-    @SequenceGenerator(name = "tool_seq", sequenceName = "TOOL_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TOOLID")
     private Long toolId;
-
-    @ManyToOne
+    
+    @ManyToOne // ← Many tools belong to one makerspace
     @JoinColumn(name = "makerspace_id", referencedColumnName = "makerspaceId")
     private Makerspace makerspace;
+    /* EXPLANATION:
+     * @ManyToOne - Relationship direction
+     * Multiple tools can exist in ONE makerspace
+     * 
+     * Example scenario:
+     * Makerspace: "Tech Hub"
+     *   ├── Tool 1: 3D Printer
+     *   ├── Tool 2: Laser Cutter
+     *   └── Tool 3: Soldering Station
+     * 
+     * @JoinColumn configuration:
+     * - name: Column in TOOL table ("makerspace_id")
+     * - referencedColumnName: Column in MAKERSPACE table ("makerspaceId")
+     * 
+     * Database structure:
+     * TOOL table:
+     * | tool_id | name        | makerspace_id |
+     * |---------|-------------|---------------|
+     * | 1       | 3D Printer  | 1             | ← All three tools
+     * | 2       | Laser Cut   | 1             | ← belong to
+     * | 3       | Soldering   | 1             | ← makerspace #1
+     */
 
     private String name;
-    private String category;
-    private String condition;
-    private String availabilityStatus;
+    private String category;  // e.g., "3D Printing", "Electronics"
+    private String toolcondition;  // e.g., "Excellent", "Good", "Fair"
+    private String availabilityStatus;  // "AVAILABLE" or "BOOKED"
     private String imageUrl;
 
-    // Constructorsفے
+    /* WHY NO @Column annotations here?
+     * Default behavior is fine:
+     * - Column name = field name
+     * - Type VARCHAR2(255)
+     * - Nullable = true
+     */
+    
+    // Constructors
     public Tool() {}
 
     // Getters and Setters
@@ -62,12 +92,12 @@ public class Tool {
         this.category = category;
     }
 
-    public String getCondition() {
-        return condition;
+    public String gettoolcondition() {
+        return toolcondition;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public void settoolcondition(String toolcondition) {
+        this.toolcondition = toolcondition;
     }
 
     public String getAvailabilityStatus() {
