@@ -20,6 +20,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "USER_SEQ", allocationSize = 1)
+    @Column(name = "USER_ID")
     private Long userId;
     /* EXPLANATION:
      * @GeneratedValue - Auto-generate ID values
@@ -34,15 +35,17 @@ public class User {
      * User 2 → userId = 2
      * User 3 → userId = 3, etc.
      */
+    @Column(name = "NAME")
     private String name;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "EMAIL", unique = true, nullable = false)
     private String email;
     /* EXPLANATION:
      * @Column - Customize column properties
      * unique = true - No two users can have same email (Oracle creates unique index)
      * nullable = false - Email is REQUIRED (Oracle: NOT NULL constraint)
      */
+    @Column(name = "PASSWORD")
     private String password;
 
     @ManyToOne
@@ -67,9 +70,11 @@ public class User {
      * | 1       | John Doe  | john@...    | 1       | ← Points to Role with id=1
      * | 2       | Jane Doe  | jane@...    | 3       | ← Points to Role with id=3
      */
-
+    @Column(name = "SKILLS")
     private String skills;
+    @Column(name = "PHONE")
     private String phone;
+    @Column(name = "CREATED_AT")
     private LocalDateTime createdAt;
 
     //lifecycle callback

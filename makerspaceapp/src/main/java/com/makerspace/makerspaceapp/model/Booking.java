@@ -40,7 +40,7 @@ public class Booking {
     
     // RELATIONSHIP 3: Tool being booked
     @ManyToOne
-    @JoinColumn(name = "tool_id", referencedColumnName = "toolId")
+    @JoinColumn(name = "TOOL_ID", referencedColumnName = "toolId")
     private Tool tool;
     /* EXPLANATION:
      * Same tool can be booked multiple times (different time slots)
@@ -69,7 +69,7 @@ public class Booking {
      * 2. User pays → Payment created and linked to booking
      * 3. After time slot → status="COMPLETED"
      */
-    
+
     // Constructors
     public Booking() {}
 

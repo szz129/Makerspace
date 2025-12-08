@@ -18,7 +18,7 @@ public class UserProfile {
     private Long profileId;
 
     @OneToOne // ← ONE user has ONE profile
-    @JoinColumn(name = "user_id", referencedColumnName = "userId")
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
     private User user;
     /* EXPLANATION:
      * @OneToOne vs @ManyToOne
@@ -32,11 +32,16 @@ public class UserProfile {
      * User 2 → Profile 1 ← Multiple users could share profile (wrong!)
      */
 
-    @Column(length = 1000)
+    @Column(name = "BIO", length = 1000)
     private String bio;
 
+    @Column(name = "PROFILE_PICTURE")
     private String profilePicture;  // URL to image
+
+    @Column(name = "ADDRESS")
     private String address;
+
+    @Column(name = "SOCIAL_LINKS")
     private String socialLinks;// JSON string with social media links
 
     // Constructors

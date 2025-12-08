@@ -11,7 +11,7 @@ public class MaintenanceLog {
     private Long logId;
 
     @ManyToOne
-    @JoinColumn(name = "tool_id")
+    @JoinColumn(name = "TOOL_ID")
     private Tool tool;
 
     private String technicianName;
@@ -34,7 +34,7 @@ public class MaintenanceLog {
      * - Status: "IN_PROGRESS"
      * - Date: Dec 5, 2024
      */
-    
+
     // Constructors
     public MaintenanceLog() {}
 

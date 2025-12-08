@@ -38,7 +38,7 @@ public class ToolService {
         tool.setMakerspace(makerspace);
         tool.setName(request.getName());
         tool.setCategory(request.getCategory());
-        tool.settoolcondition(request.gettoolcondition());
+        tool.setToolCondition(request.getToolCondition());
         tool.setAvailabilityStatus(request.getAvailabilityStatus() != null ? request.getAvailabilityStatus() : "AVAILABLE");
         tool.setImageUrl(request.getImageUrl());
         
@@ -110,7 +110,7 @@ public class ToolService {
         
         if (request.getName() != null) tool.setName(request.getName());
         if (request.getCategory() != null) tool.setCategory(request.getCategory());
-        if (request.gettoolcondition() != null) tool.settoolcondition(request.gettoolcondition());
+        if (request.getToolCondition() != null) tool.setToolCondition(request.getToolCondition());
         if (request.getAvailabilityStatus() != null) tool.setAvailabilityStatus(request.getAvailabilityStatus());
         if (request.getImageUrl() != null) tool.setImageUrl(request.getImageUrl());
         
@@ -164,7 +164,7 @@ public class ToolService {
         
         response.setName(tool.getName());
         response.setCategory(tool.getCategory());
-        response.settoolcondition(tool.gettoolcondition());
+        response.setToolCondition(tool.getToolCondition());
         response.setAvailabilityStatus(tool.getAvailabilityStatus());
         response.setImageUrl(tool.getImageUrl());
         
