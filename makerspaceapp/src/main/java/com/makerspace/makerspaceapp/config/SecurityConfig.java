@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
+            .csrf(csrf -> csrf.disable()) //disabling Cross-Site Request Forgery 
             .authorizeHttpRequests(auth -> auth
                 // Public endpoints
                 .requestMatchers("/api/auth/**").permitAll()
@@ -68,20 +68,20 @@ public class SecurityConfig {
                 // YouTube - All authenticated users
                 .requestMatchers("/api/youtube/**").hasAnyRole("USER", "ADMIN", "STAFF")
                 
-                // Everything else requires authentication
+                // any other URL request requires authentication
                 .anyRequest().authenticated()
             )
-            .sessionManagement(session -> session
+            .sessionManagement(session -> session 
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+            ) //no HTTP sessions, no server-side session storage
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); //token-checking first
 
         return http.build();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(); //hashing
     }
     
     @Bean
