@@ -1,75 +1,54 @@
 package com.makerspace.makerspaceapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+
+import jakarta.persistence.*;
+
+
 @Entity
+@Table(name = "SUPPLIER")
 public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supplier_seq")
-    @SequenceGenerator(name = "supplier_seq", sequenceName = "SUPPLIER_SEQ", allocationSize = 1)
-    private Long supplierId;
-    private String name;
-    private String contact;
-    private String email;
-    private String address;
-    private Double rating;  // 0.0 to 5.0
-    /* EXPLANATION:
-     * Catalog of vendors for inventory items
-     * Can track supplier performance (rating)
-     */
 
-    // Constructors
-    public Supplier() {}
 
-    // Getters and Setters
-    public Long getSupplierId() {
-        return supplierId;
-    }
+@Id
+@SequenceGenerator(name = "supplier_seq_gen", sequenceName = "SUPPLIER_SEQ", allocationSize = 1)
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supplier_seq_gen")
+@Column(name = "SUPPLIER_ID")
+private Long supplierId;
 
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
-    }
 
-    public String getName() {
-        return name;
-    }
+@Column(name = "NAME")
+private String name;
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public String getContact() {
-        return contact;
-    }
+@Column(name = "CONTACT")
+private String contact;
 
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
 
-    public String getEmail() {
-        return email;
-    }
+@Column(name = "EMAIL")
+private String email;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getAddress() {
-        return address;
-    }
+@Column(name = "ADDRESS")
+private String address;
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
-    public Double getRating() {
-        return rating;
-    }
+@Column(name = "RATING")
+private Double rating;
 
-    public void setRating(Double rating) {
-        this.rating = rating;
-    }
+
+public Supplier() {}
+
+
+public Long getSupplierId() { return supplierId; }
+public void setSupplierId(Long supplierId) { this.supplierId = supplierId; }
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+public String getContact() { return contact; }
+public void setContact(String contact) { this.contact = contact; }
+public String getEmail() { return email; }
+public void setEmail(String email) { this.email = email; }
+public String getAddress() { return address; }
+public void setAddress(String address) { this.address = address; }
+public Double getRating() { return rating; }
+public void setRating(Double rating) { this.rating = rating; }
 }

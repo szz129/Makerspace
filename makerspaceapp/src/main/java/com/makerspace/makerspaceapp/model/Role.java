@@ -1,29 +1,44 @@
 package com.makerspace.makerspaceapp.model;
 
+
 import jakarta.persistence.*;
 
+
 @Entity
-@Table(name = "roles")
+@Table(name = "ROLES")
 public class Role {
 
-    @Id
-    private Long id;
 
-    private String name;   // ADMIN, USER, STAFF
+@Id
+@SequenceGenerator(name = "role_seq_gen", sequenceName = "ROLE_SEQ", allocationSize = 1)
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_seq_gen")
+@Column(name = "ID")
+private Long id;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+@Column(name = "NAME", nullable = false)
+private String name; // ADMIN, USER, STAFF
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+public Role() {}
+
+
+public Long getId() {
+return id;
+}
+
+
+public void setId(Long id) {
+this.id = id;
+}
+
+
+public String getName() {
+return name;
+}
+
+
+public void setName(String name) {
+this.name = name;
+}
 }

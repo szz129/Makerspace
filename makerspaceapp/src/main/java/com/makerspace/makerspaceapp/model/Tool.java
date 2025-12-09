@@ -1,100 +1,61 @@
 package com.makerspace.makerspaceapp.model;
 
+
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "TOOL")
 public class Tool {
 
-    @Id
-    @SequenceGenerator(
-        name = "TOOL_SEQ",
-        sequenceName = "TOOL_SEQ",
-        allocationSize = 1
-    )
-    @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "TOOL_SEQ"
-    )
-    @Column(name = "TOOL_ID")
-    private Long toolId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MAKERSPACE_ID")
-    private Makerspace makerspace;
+@Id
+@SequenceGenerator(name = "tool_seq_gen", sequenceName = "TOOL_SEQ", allocationSize = 1)
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tool_seq_gen")
+@Column(name = "TOOL_ID")
+private Long toolId;
 
-    @Column(name = "NAME")
-    private String name;
 
-    @Column(name = "CATEGORY")
-    private String category;
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "MAKERSPACE_ID")
+private Makerspace makerspace;
 
-    @Column(name = "TOOL_CONDITION")   
-    private String toolCondition;
 
-    @Column(name = "AVAILABILITY_STATUS")   
-    private String availabilityStatus;
+@Column(name = "NAME")
+private String name;
 
-    @Column(name = "IMAGE_URL")   
-    private String imageUrl;
 
-    // Constructors
-    public Tool() {}
+@Column(name = "CATEGORY")
+private String category;
 
-    // Getters and Setters
-    public Long getToolId() {
-        return toolId;
-    }
 
-    public void setToolId(Long toolId) {
-        this.toolId = toolId;
-    }
+@Column(name = "TOOL_CONDITION")
+private String toolCondition;
 
-    public Makerspace getMakerspace() {
-        return makerspace;
-    }
 
-    public void setMakerspace(Makerspace makerspace) {
-        this.makerspace = makerspace;
-    }
+@Column(name = "AVAILABILITY_STATUS")
+private String availabilityStatus;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+@Column(name = "IMAGE_URL")
+private String imageUrl;
 
-    public String getCategory() {
-        return category;
-    }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+public Tool() {}
 
-    public String getToolCondition() {
-        return toolCondition;
-    }
 
-    public void setToolCondition(String toolCondition) {
-        this.toolCondition = toolCondition;
-    }
-
-    public String getAvailabilityStatus() {
-        return availabilityStatus;
-    }
-
-    public void setAvailabilityStatus(String availabilityStatus) {
-        this.availabilityStatus = availabilityStatus;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+public Long getToolId() { return toolId; }
+public void setToolId(Long toolId) { this.toolId = toolId; }
+public Makerspace getMakerspace() { return makerspace; }
+public void setMakerspace(Makerspace makerspace) { this.makerspace = makerspace; }
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+public String getCategory() { return category; }
+public void setCategory(String category) { this.category = category; }
+public String getToolCondition() { return toolCondition; }
+public void setToolCondition(String toolCondition) { this.toolCondition = toolCondition; }
+public String getAvailabilityStatus() { return availabilityStatus; }
+public void setAvailabilityStatus(String availabilityStatus) { this.availabilityStatus = availabilityStatus; }
+public String getImageUrl() { return imageUrl; }
+public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

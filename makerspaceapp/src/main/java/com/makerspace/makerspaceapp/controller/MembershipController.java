@@ -1,9 +1,10 @@
 package com.makerspace.makerspaceapp.controller;
 
 import com.makerspace.makerspaceapp.dto.ApiResponse;
+import com.makerspace.makerspaceapp.dto.MembershipRequest;
 import com.makerspace.makerspaceapp.model.Membership;
 import com.makerspace.makerspaceapp.service.MembershipService;
-import org.springframework.format.annotation.DateTimeFormat;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,78 +24,59 @@ public class MembershipController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<Membership>> createMembership(@RequestBody Membership membership) {
-        Membership created = membershipService.createMembership(membership);
-        ApiResponse<Membership> response = new ApiResponse<>(true, "Membership created successfully", created);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity<ApiResponse<Membership>> createMembership(@RequestBody MembershipRequest request) {
+        Membership created = membershipService.createMembership(request);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ApiResponse<>(true, "Membership created successfully", created));
     }
 
     @GetMapping
     public ResponseEntity<ApiResponse<List<Membership>>> getAllMemberships() {
-        List<Membership> memberships = membershipService.getAllMemberships();
-        ApiResponse<List<Membership>> response = new ApiResponse<>(true, "Memberships retrieved successfully", memberships);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Memberships retrieved", membershipService.getAllMemberships()));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<Membership>> getMembershipById(@PathVariable Long id) {
-        Membership membership = membershipService.getMembershipById(id);
-        ApiResponse<Membership> response = new ApiResponse<>(true, "Membership retrieved successfully", membership);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Membership retrieved", membershipService.getMembershipById(id)));
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<ApiResponse<List<Membership>>> getMembershipsByUser(@PathVariable Long userId) {
-        List<Membership> memberships = membershipService.getMembershipsByUser(userId);
-        ApiResponse<List<Membership>> response = new ApiResponse<>(true, "User memberships retrieved successfully", memberships);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiResponse<List<Membership>>> getByUser(@PathVariable Long userId) {
+        return ResponseEntity.ok(new ApiResponse<>(true, "User memberships retrieved", membershipService.getMembershipsByUser(userId)));
     }
 
     @GetMapping("/user/{userId}/active")
     public ResponseEntity<ApiResponse<Membership>> getActiveMembershipByUser(@PathVariable Long userId) {
-        Membership membership = membershipService.getActiveMembershipByUser(userId);
-        ApiResponse<Membership> response = new ApiResponse<>(true, "Active membership retrieved successfully", membership);
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("/status/{status}")
-    public ResponseEntity<ApiResponse<List<Membership>>> getMembershipsByStatus(@PathVariable String status) {
-        List<Membership> memberships = membershipService.getMembershipsByStatus(status);
-        ApiResponse<List<Membership>> response = new ApiResponse<>(true, "Memberships retrieved successfully", memberships);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Active membership retrieved", membershipService.getActiveMembershipByUser(userId)));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<Membership>> updateMembership(
             @PathVariable Long id,
-            @RequestBody Membership membership) {
-        Membership updated = membershipService.updateMembership(id, membership);
-        ApiResponse<Membership> response = new ApiResponse<>(true, "Membership updated successfully", updated);
-        return ResponseEntity.ok(response);
+            @RequestBody MembershipRequest request) {
+
+        Membership updated = membershipService.updateMembership(id, request);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Membership updated", updated));
     }
 
     @PatchMapping("/{id}/status")
-    public ResponseEntity<ApiResponse<Membership>> updateMembershipStatus(
-            @PathVariable Long id,
-            @RequestParam String status) {
-        Membership membership = membershipService.updateMembershipStatus(id, status);
-        ApiResponse<Membership> response = new ApiResponse<>(true, "Membership status updated successfully", membership);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiResponse<Membership>> updateStatus(@PathVariable Long id, @RequestParam String status) {
+        return ResponseEntity.ok(new ApiResponse<>(true, "Status updated",
+                membershipService.updateMembershipStatus(id, status)));
     }
 
     @PatchMapping("/{id}/renew")
-    public ResponseEntity<ApiResponse<Membership>> renewMembership(
+    public ResponseEntity<ApiResponse<Membership>> renew(
             @PathVariable Long id,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate newEndDate) {
-        Membership membership = membershipService.renewMembership(id, newEndDate);
-        ApiResponse<Membership> response = new ApiResponse<>(true, "Membership renewed successfully", membership);
-        return ResponseEntity.ok(response);
+            @RequestParam LocalDate newEndDate) {
+
+        return ResponseEntity.ok(new ApiResponse<>(true, "Membership renewed",
+                membershipService.renewMembership(id, newEndDate)));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse<Void>> deleteMembership(@PathVariable Long id) {
         membershipService.deleteMembership(id);
-        ApiResponse<Void> response = new ApiResponse<>(true, "Membership deleted successfully", null);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(new ApiResponse<>(true, "Membership deleted", null));
     }
 }

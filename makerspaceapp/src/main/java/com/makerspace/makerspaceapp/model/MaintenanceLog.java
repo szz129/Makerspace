@@ -1,89 +1,63 @@
 package com.makerspace.makerspaceapp.model;
 
+
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+
 @Entity
+@Table(name = "MAINTENANCE_LOG")
 public class MaintenanceLog {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maintenance_seq")
-    @SequenceGenerator(name = "maintenance_seq", sequenceName = "MAINTENANCE_LOG_SEQ", allocationSize = 1)
-    private Long logId;
 
-    @ManyToOne
-    @JoinColumn(name = "TOOL_ID")
-    private Tool tool;
 
-    private String technicianName;
-    
-    @Column(length = 2000)
-    private String description;
-    
-    @Column(name = "maintenance_date")  
-    private LocalDateTime maintenanceDate; 
-    
-    private String status;  // "OPEN", "IN_PROGRESS", "DONE"
-    
-    /* EXPLANATION:
-     * Tracks tool repairs and maintenance
-     * 
-     * Example:
-     * Tool: "3D Printer"
-     * - Issue: "Nozzle clogged"
-     * - Technician: "Ahmed Khan"
-     * - Status: "IN_PROGRESS"
-     * - Date: Dec 5, 2024
-     */
+@Id
+@SequenceGenerator(name = "maintenance_seq_gen", sequenceName = "MAINTENANCE_SEQ", allocationSize = 1)
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "maintenance_seq_gen")
+@Column(name = "LOG_ID")
+private Long logId;
 
-    // Constructors
-    public MaintenanceLog() {}
 
-    // Getters and Setters
-    public Long getLogId() {
-        return logId;
-    }
+@ManyToOne
+@JoinColumn(name = "TOOL_ID")
+private Tool tool;
 
-    public void setLogId(Long logId) {
-        this.logId = logId;
-    }
 
-    public Tool getTool() {
-        return tool;
-    }
+@Column(name = "TECHNICIAN_NAME")
+private String technicianName;
 
-    public void setTool(Tool tool) {
-        this.tool = tool;
-    }
 
-    public String getTechnicianName() {
-        return technicianName;
-    }
+@Column(name = "DESCRIPTION", length = 2000)
+private String description;
 
-    public void setTechnicianName(String technicianName) {
-        this.technicianName = technicianName;
-    }
 
-    public String getDescription() {
-        return description;
-    }
+@Column(name = "MAINTENANCE_DATE")
+private LocalDateTime maintenanceDate;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public LocalDateTime getMaintenanceDate() {  // Changed getter
-        return maintenanceDate;
-    }
+@Enumerated(EnumType.STRING)
+@Column(name = "STATUS")
+private MaintenanceStatus status;
 
-    public void setMaintenanceDate(LocalDateTime maintenanceDate) {  // Changed setter
-        this.maintenanceDate = maintenanceDate;
-    }
 
-    public String getStatus() {
-        return status;
-    }
+@PrePersist
+protected void onCreate() {
+if (this.maintenanceDate == null) this.maintenanceDate = LocalDateTime.now();
+}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+
+public MaintenanceLog() {}
+
+
+public Long getLogId() { return logId; }
+public void setLogId(Long logId) { this.logId = logId; }
+public Tool getTool() { return tool; }
+public void setTool(Tool tool) { this.tool = tool; }
+public String getTechnicianName() { return technicianName; }
+public void setTechnicianName(String technicianName) { this.technicianName = technicianName; }
+public String getDescription() { return description; }
+public void setDescription(String description) { this.description = description; }
+public LocalDateTime getMaintenanceDate() { return maintenanceDate; }
+public void setMaintenanceDate(LocalDateTime maintenanceDate) { this.maintenanceDate = maintenanceDate; }
+public MaintenanceStatus getStatus() { return status; }
+public void setStatus(MaintenanceStatus status) { this.status = status; }
 }

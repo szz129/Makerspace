@@ -1,90 +1,56 @@
 package com.makerspace.makerspaceapp.model;
 
+
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.SequenceGenerator;
 
 @Entity
+@Table(name = "ACHIEVEMENT")
 public class Achievement {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "achievement_seq")
-    @SequenceGenerator(name = "achievement_seq", sequenceName = "ACHIEVEMENT_SEQ", allocationSize = 1)
-    private Long achievementId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
-    private String title;  // "First Project", "10 Bookings"
-    private String description;
-    private LocalDate dateEarned;
-    private String type;  // "milestone", "skill", "contribution"
-    
-    /* EXPLANATION:
-     * Gamification feature
-     * Award badges/achievements to users
-     * 
-     * Example achievements:
-     * - "Made first booking"
-     * - "Completed 5 projects"
-     * - "Workshop attendee"
-     */
+@Id
+@SequenceGenerator(name = "achievement_seq_gen", sequenceName = "ACHIEVEMENT_SEQ", allocationSize = 1)
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "achievement_seq_gen")
+@Column(name = "ACHIEVEMENT_ID")
+private Long achievementId;
 
-    // Constructors
-    public Achievement() {}
 
-    // Getters and Setters
-    public Long getAchievementId() {
-        return achievementId;
-    }
+@ManyToOne
+@JoinColumn(name = "USER_ID")
+private User user;
 
-    public void setAchievementId(Long achievementId) {
-        this.achievementId = achievementId;
-    }
 
-    public User getUser() {
-        return user;
-    }
+@Column(name = "TITLE")
+private String title;
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
-    public String getTitle() {
-        return title;
-    }
+@Column(name = "DESCRIPTION")
+private String description;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
-    public String getDescription() {
-        return description;
-    }
+@Column(name = "DATE_EARNED")
+private LocalDate dateEarned;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public LocalDate getDateEarned() {
-        return dateEarned;
-    }
+@Column(name = "TYPE")
+private String type;
 
-    public void setDateEarned(LocalDate dateEarned) {
-        this.dateEarned = dateEarned;
-    }
 
-    public String getType() {
-        return type;
-    }
+public Achievement() {}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+
+public Long getAchievementId() { return achievementId; }
+public void setAchievementId(Long achievementId) { this.achievementId = achievementId; }
+public User getUser() { return user; }
+public void setUser(User user) { this.user = user; }
+public String getTitle() { return title; }
+public void setTitle(String title) { this.title = title; }
+public String getDescription() { return description; }
+public void setDescription(String description) { this.description = description; }
+public LocalDate getDateEarned() { return dateEarned; }
+public void setDateEarned(LocalDate dateEarned) { this.dateEarned = dateEarned; }
+public String getType() { return type; }
+public void setType(String type) { this.type = type; }
 }

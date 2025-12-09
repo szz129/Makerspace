@@ -17,50 +17,66 @@ public class EventController {
         this.eventService = eventService;
     }
 
+    // =========================
     // CREATE EVENT
-    @PostMapping("/create")
+    // =========================
+    @PostMapping
     public Event createEvent(@RequestBody Event event) {
         return eventService.createEvent(event);
     }
 
+    // =========================
     // GET EVENT BY ID
+    // =========================
     @GetMapping("/{id}")
     public Event getEvent(@PathVariable Long id) {
         return eventService.getEventById(id);
     }
 
+    // =========================
     // GET ALL EVENTS
-    @GetMapping("/all")
+    // =========================
+    @GetMapping
     public List<Event> getAllEvents() {
         return eventService.getAllEvents();
     }
 
+    // =========================
     // GET EVENTS BY TYPE
+    // =========================
     @GetMapping("/type/{type}")
     public List<Event> getByType(@PathVariable String type) {
         return eventService.filterByType(type);
     }
 
-    // UPCOMING EVENTS
+    // =========================
+    // GET UPCOMING
+    // =========================
     @GetMapping("/upcoming")
     public List<Event> getUpcoming() {
         return eventService.getUpcomingEvents();
     }
 
-    // EVENTS BY MAKERSPACE
+    // =========================
+    // GET BY MAKERSPACE
+    // =========================
     @GetMapping("/makerspace/{id}")
     public List<Event> getByMakerspace(@PathVariable Long id) {
         return eventService.getEventsByMakerspace(id);
     }
 
+    // =========================
     // UPDATE EVENT
-    @PutMapping("/update/{id}")
+    // =========================
+    @PutMapping("/{id}")
     public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
         return eventService.updateEvent(id, event);
     }
 
+    // =========================
     // DELETE EVENT
-    @DeleteMapping("/delete/{id}")
+    // =========================
+    @DeleteMapping("/{id}")
     public String deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
         return "Event deleted successfully.";

@@ -1,119 +1,76 @@
 package com.makerspace.makerspaceapp.model;
 
+
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 
 @Entity
+@Table(name = "PROJECT")
 public class Project {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq")
-    @SequenceGenerator(name = "project_seq", sequenceName = "PROJECT_SEQ", allocationSize = 1)
-    private Long projectId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "creator_id", nullable = false)
-    private User creator;
-    /* EXPLANATION:
-     * fetch = FetchType.LAZY
-     * Don't load creator immediately when loading project
-     * Only load when you call project.getCreator()
-     * 
-     * Why?
-     * Performance! If you load 100 projects, you don't want
-     * 100 separate queries to load each creator.
-     * 
-     * LAZY:
-     * 1. SELECT * FROM project;  ← 1 query
-     * 2. When needed: SELECT * FROM users WHERE user_id = ?;
-     * 
-     * EAGER (if used):
-     * SELECT p.*, u.* FROM project p JOIN users u ON p.creator_id = u.user_id;
-     * ← Loads everything immediately
-     */
+@Id
+@SequenceGenerator(name = "project_seq_gen", sequenceName = "PROJECT_SEQ", allocationSize = 1)
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq_gen")
+@Column(name = "PROJECT_ID")
+private Long projectId;
 
-    @Column(nullable = false)
-    private String title;
 
-    @Column(length = 2000)
-    private String description;
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "CREATOR_ID", nullable = false)
+private User creator;
 
-    private String category;
-    private LocalDate startDate;
-    private LocalDate endDate;
 
-    @Column(nullable = false)
-    private String status;
-    /* @Column(nullable = false)
-     * Database enforces NOT NULL
-     * Trying to save project without title → Exception
-     */
-    
-    // Constructors
-    public Project() {}
+@Column(name = "TITLE", nullable = false)
+private String title;
 
-    // Getters and Setters
-    public Long getProjectId() {
-        return projectId;
-    }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
+@Column(name = "DESCRIPTION", length = 2000)
+private String description;
 
-    public User getCreator() {
-        return creator;
-    }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
+@Column(name = "CATEGORY")
+private String category;
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+@Column(name = "START_DATE")
+private LocalDate startDate;
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+@Column(name = "END_DATE")
+private LocalDate endDate;
 
-    public String getCategory() {
-        return category;
-    }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+@Column(name = "STATUS", nullable = false)
+private String status;
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
+// Optional: map members for convenience
+@OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+private List<ProjectMember> members;
 
-    public LocalDate getEndDate() {
-        return endDate;
-    }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
+public Project() {}
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+public Long getProjectId() { return projectId; }
+public void setProjectId(Long projectId) { this.projectId = projectId; }
+public User getCreator() { return creator; }
+public void setCreator(User creator) { this.creator = creator; }
+public String getTitle() { return title; }
+public void setTitle(String title) { this.title = title; }
+public String getDescription() { return description; }
+public void setDescription(String description) { this.description = description; }
+public String getCategory() { return category; }
+public void setCategory(String category) { this.category = category; }
+public LocalDate getStartDate() { return startDate; }
+public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+public LocalDate getEndDate() { return endDate; }
+public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
+public String getStatus() { return status; }
+public void setStatus(String status) { this.status = status; }
+public List<ProjectMember> getMembers() { return members; }
+public void setMembers(List<ProjectMember> members) { this.members = members; }
 }
