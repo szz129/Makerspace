@@ -25,7 +25,7 @@ public Long getUser() { return user; }
 public void setUser(Long user) { this.user = user; }
 
 
-@Override
+@Override //compares memory addresses, therefore override
 public boolean equals(Object o) {
 if (this == o) return true;
 if (o == null || getClass() != o.getClass()) return false;
