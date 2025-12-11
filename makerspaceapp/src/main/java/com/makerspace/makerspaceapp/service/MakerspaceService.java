@@ -20,9 +20,6 @@ public class MakerspaceService {
         this.makerspaceRepository = makerspaceRepository;
     }
 
-    // ----------------------------------------------------
-    // CREATE
-    // ----------------------------------------------------
     public MakerspaceResponse create(MakerspaceRequest request) {
         Makerspace m = new Makerspace();
         mapRequestToEntity(request, m);
@@ -31,9 +28,7 @@ public class MakerspaceService {
         return toResponse(saved);
     }
 
-    // ----------------------------------------------------
-    // GET ALL
-    // ----------------------------------------------------
+   
     public List<MakerspaceResponse> getAll() {
         return makerspaceRepository.findAll()
                 .stream()
@@ -41,17 +36,11 @@ public class MakerspaceService {
                 .collect(Collectors.toList());
     }
 
-    // ----------------------------------------------------
-    // GET BY ID
-    // ----------------------------------------------------
     public MakerspaceResponse getById(Long id) {
         Makerspace m = findByIdOrThrow(id);
         return toResponse(m);
     }
 
-    // ----------------------------------------------------
-    // GET BY LOCATION
-    // ----------------------------------------------------
     public List<MakerspaceResponse> getByLocation(String location) {
         return makerspaceRepository.findByLocation(location)
                 .stream()
@@ -59,9 +48,7 @@ public class MakerspaceService {
                 .collect(Collectors.toList());
     }
 
-    // ----------------------------------------------------
-    // UPDATE
-    // ----------------------------------------------------
+    
     @Transactional
     public MakerspaceResponse update(Long id, MakerspaceRequest request) {
         Makerspace existing = findByIdOrThrow(id);
@@ -78,19 +65,12 @@ public class MakerspaceService {
         return toResponse(updated);
     }
 
-    // ----------------------------------------------------
-    // DELETE
-    // ----------------------------------------------------
     public void delete(Long id) {
         if (!makerspaceRepository.existsById(id)) {
             throw new ResourceNotFoundException("Makerspace", "id", id);
         }
         makerspaceRepository.deleteById(id);
     }
-
-    // ----------------------------------------------------
-    // HELPER METHODS
-    // ----------------------------------------------------
 
     private Makerspace findByIdOrThrow(Long id) {
         return makerspaceRepository.findById(id)
