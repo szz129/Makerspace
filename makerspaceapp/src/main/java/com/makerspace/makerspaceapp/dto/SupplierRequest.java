@@ -1,44 +1,25 @@
-package com.makerspace.makerspaceapp.model;
+package com.makerspace.makerspaceapp.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "SUPPLIER")
-public class Supplier {
+public class SupplierRequest {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supplier_seq")
-    @SequenceGenerator(name = "supplier_seq", sequenceName = "SUPPLIER_SEQ", allocationSize = 1)
-    @Column(name = "SUPPLIER_ID")
-    private Long supplierId;
-    
-    @Column(name = "NAME")
+    @NotBlank(message = "Supplier name is required")
     private String name;
     
-    @Column(name = "CONTACT")
     private String contact;
     
-    @Column(name = "EMAIL")
+    @Email(message = "Invalid email format")
     private String email;
     
-    @Column(name = "ADDRESS")
     private String address;
-    
-    @Column(name = "RATING")
     private Double rating;
 
     // Constructors
-    public Supplier() {}
+    public SupplierRequest() {}
 
     // Getters and Setters
-    public Long getSupplierId() {
-        return supplierId;
-    }
-
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
-    }
-
     public String getName() {
         return name;
     }

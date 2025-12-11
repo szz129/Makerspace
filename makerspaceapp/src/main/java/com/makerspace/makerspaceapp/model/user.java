@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "USERS")  // Oracle typically uses uppercase
+@Table(name = "USERS")
 public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
     @SequenceGenerator(name = "user_seq", sequenceName = "USER_SEQ", allocationSize = 1)
-    @Column(name = "USER_ID")  // Match your database column name
+    @Column(name = "USER_ID")
     private Long userId;
     
     @Column(name = "NAME")
@@ -23,7 +23,7 @@ public class User {
     private String password;
     
     @ManyToOne
-    @JoinColumn(name = "ROLE_ID")  // Match your database column name
+    @JoinColumn(name = "ROLE_ID")
     private Role role;
     
     @Column(name = "SKILLS")

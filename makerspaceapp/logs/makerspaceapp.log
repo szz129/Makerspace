@@ -2,3 +2,979 @@
 2025-12-09 13:33:58 - o.s.o.j.LocalContainerEntityManagerFactoryBean - INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-12-09 13:33:58 - com.zaxxer.hikari.HikariDataSource - INFO  - HikariPool-1 - Shutdown initiated...
 2025-12-09 13:33:58 - com.zaxxer.hikari.HikariDataSource - INFO  - HikariPool-1 - Shutdown completed.
+2025-12-09 14:01:38 - o.h.validator.internal.util.Version - INFO  - HV000001: Hibernate Validator 8.0.1.Final
+2025-12-09 14:01:39 - c.m.m.MakerspaceappApplication - INFO  - Starting MakerspaceappApplication v0.0.1-SNAPSHOT using Java 21.0.9 with PID 12476 (C:\Users\muham\Downloads\makerspaceapp\makerspaceapp\target\makerspaceapp-0.0.1-SNAPSHOT.jar started by user in C:\Users\muham\Downloads\makerspaceapp\makerspaceapp)
+2025-12-09 14:01:39 - c.m.m.MakerspaceappApplication - DEBUG - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-12-09 14:01:39 - c.m.m.MakerspaceappApplication - INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-12-09 14:01:42 - o.s.d.r.c.RepositoryConfigurationDelegate - INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-09 14:01:43 - o.s.d.r.c.RepositoryConfigurationDelegate - INFO  - Finished Spring Data repository scanning in 281 ms. Found 15 JPA repository interfaces.
+2025-12-09 14:01:46 - o.s.b.w.e.tomcat.TomcatWebServer - INFO  - Tomcat initialized with port 8082 (http)
+2025-12-09 14:01:46 - o.a.coyote.http11.Http11NioProtocol - INFO  - Initializing ProtocolHandler ["http-nio-8082"]
+2025-12-09 14:01:46 - o.a.catalina.core.StandardService - INFO  - Starting service [Tomcat]
+2025-12-09 14:01:46 - o.a.catalina.core.StandardEngine - INFO  - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-12-09 14:01:46 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO  - Initializing Spring embedded WebApplicationContext
+2025-12-09 14:01:46 - o.s.b.w.s.c.ServletWebServerApplicationContext - INFO  - Root WebApplicationContext: initialization completed in 7374 ms
+2025-12-09 14:01:48 - o.h.jpa.internal.util.LogHelper - INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-09 14:01:48 - org.hibernate.Version - INFO  - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-12-09 14:01:48 - o.h.c.i.RegionFactoryInitiator - INFO  - HHH000026: Second-level cache disabled
+2025-12-09 14:01:49 - o.s.o.j.p.SpringPersistenceUnitInfo - INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-09 14:01:49 - com.zaxxer.hikari.HikariDataSource - INFO  - HikariPool-1 - Starting...
+2025-12-09 14:01:49 - c.z.hikari.util.DriverDataSource - WARN  - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2025-12-09 14:01:50 - com.zaxxer.hikari.pool.HikariPool - INFO  - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@6d4c18b8
+2025-12-09 14:01:50 - com.zaxxer.hikari.HikariDataSource - INFO  - HikariPool-1 - Start completed.
+2025-12-09 14:01:50 - org.hibernate.orm.deprecation - WARN  - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-09 14:01:54 - o.h.e.t.j.p.i.JtaPlatformInitiator - INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-09 14:01:54 - o.s.o.j.LocalContainerEntityManagerFactoryBean - INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-09 14:01:56 - c.m.m.s.JwtAuthenticationFilter - DEBUG - Filter 'jwtAuthenticationFilter' configured for use
+2025-12-09 14:01:57 - o.s.d.j.r.query.QueryEnhancerFactory - INFO  - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-09 14:02:01 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-09 14:02:03 - o.s.b.a.e.web.EndpointLinksResolver - INFO  - Exposing 7 endpoint(s) beneath base path '/actuator'
+2025-12-09 14:02:04 - o.s.s.web.DefaultSecurityFilterChain - INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e983867, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@bbaf70f, org.springframework.security.web.context.SecurityContextHolderFilter@7073b501, org.springframework.security.web.header.HeaderWriterFilter@2afee2ee, org.springframework.web.filter.CorsFilter@37ad8430, org.springframework.security.web.authentication.logout.LogoutFilter@25daa0a0, com.makerspace.makerspaceapp.security.JwtAuthenticationFilter@50720344, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ffd66e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5db553f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3027a038, org.springframework.security.web.session.SessionManagementFilter@26c9521a, org.springframework.security.web.access.ExceptionTranslationFilter@5332ebea, org.springframework.security.web.access.intercept.AuthorizationFilter@2d55b38b]
+2025-12-09 14:02:05 - o.a.coyote.http11.Http11NioProtocol - INFO  - Starting ProtocolHandler ["http-nio-8082"]
+2025-12-09 14:02:06 - o.s.b.w.e.tomcat.TomcatWebServer - INFO  - Tomcat started on port 8082 (http) with context path ''
+2025-12-09 14:02:06 - c.m.m.MakerspaceappApplication - INFO  - Started MakerspaceappApplication in 28.631 seconds (process running for 29.984)
+2025-12-09 14:04:13 - o.a.c.c.C.[Tomcat].[localhost].[/] - INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-09 14:04:13 - o.s.web.servlet.DispatcherServlet - INFO  - Initializing Servlet 'dispatcherServlet'
+2025-12-09 14:04:13 - o.s.web.servlet.DispatcherServlet - INFO  - Completed initialization in 10 ms
+2025-12-09 14:04:13 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /actuator/health
+2025-12-09 14:04:13 - o.s.w.s.h.HandlerMappingIntrospector - WARN  - Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-12-09 14:04:13 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:04:13 - o.s.w.s.h.HandlerMappingIntrospector - WARN  - Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-12-09 14:04:13 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /actuator/health
+2025-12-09 14:04:20 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /actuator/health
+2025-12-09 14:04:20 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:04:20 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /actuator/health
+2025-12-09 14:05:38 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users/register
+2025-12-09 14:05:38 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:05:38 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/users/register
+2025-12-09 14:05:42 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/users/register
+2025-12-09 14:05:42 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:05:42 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/users/register
+2025-12-09 14:05:42 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: UserController.register(..)
+2025-12-09 14:05:42 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: UserController.register(..) with arguments: [com.makerspace.makerspaceapp.model.User@30f6a0a9]
+2025-12-09 14:05:42 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: UserService.save(..)
+2025-12-09 14:05:42 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: UserService.save(..) with arguments: [com.makerspace.makerspaceapp.model.User@30f6a0a9]
+2025-12-09 14:05:42 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."NAME"=?
+2025-12-09 14:05:42 - org.hibernate.SQL - DEBUG - 
+    select
+        "USER_SEQ".nextval 
+    from
+        dual
+2025-12-09 14:05:42 - c.m.m.aspect.LoggingAspect - DEBUG - Method UserService.save(..) returned: com.makerspace.makerspaceapp.model.User@30f6a0a9
+2025-12-09 14:05:42 - c.m.m.aspect.LoggingAspect - INFO  - Method UserService.save(..) executed in 431 ms
+2025-12-09 14:05:42 - org.hibernate.SQL - DEBUG - 
+    insert 
+    into
+        "USERS"
+        ("CREATED_AT", "EMAIL", "NAME", "PASSWORD", "PHONE", "ROLE_ID", "SKILLS", "USER_ID") 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-09 14:05:43 - c.m.m.aspect.LoggingAspect - DEBUG - Method UserController.register(..) returned: <200 OK OK,ApiResponse{success=true, message='User registered', data=com.makerspace.makerspaceapp.model.User@30f6a0a9},[]>
+2025-12-09 14:05:43 - c.m.m.aspect.LoggingAspect - INFO  - Method UserController.register(..) executed in 669 ms
+2025-12-09 14:10:26 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:10:26 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:10:26 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:10:27 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:10:27 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:10:27 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:10:31 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:10:31 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:10:31 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:10:31 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:10:31 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:10:31 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:14:30 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /auth/login
+2025-12-09 14:14:30 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:14:30 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:14:30 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /auth/login
+2025-12-09 14:14:48 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:14:48 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:14:48 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:14:48 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: AuthController.login(..)
+2025-12-09 14:14:48 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: AuthController.login(..) with arguments: [com.makerspace.makerspaceapp.dto.LoginRequest@7452fd2f]
+2025-12-09 14:14:48 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:14:48 - o.s.s.a.d.DaoAuthenticationProvider - DEBUG - Failed to find user 'shanzanoor@gmail.com'
+2025-12-09 14:14:48 - c.m.m.aspect.LoggingAspect - ERROR - Method AuthController.login(..) threw exception: Bad credentials
+2025-12-09 14:15:03 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:15:03 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:15:03 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:15:03 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: AuthController.login(..)
+2025-12-09 14:15:03 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: AuthController.login(..) with arguments: [com.makerspace.makerspaceapp.dto.LoginRequest@253101d8]
+2025-12-09 14:15:03 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:15:03 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:15:03 - o.s.s.a.d.DaoAuthenticationProvider - DEBUG - Authenticated user
+2025-12-09 14:15:03 - c.m.m.aspect.LoggingAspect - DEBUG - Method AuthController.login(..) returned: <200 OK OK,ApiResponse{success=true, message='Login successful', data=com.makerspace.makerspaceapp.dto.LoginResponse@4ce04706},[]>
+2025-12-09 14:15:03 - c.m.m.aspect.LoggingAspect - INFO  - Method AuthController.login(..) executed in 183 ms
+2025-12-09 14:15:21 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/uses
+2025-12-09 14:15:21 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:15:22 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:15:22 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/uses
+2025-12-09 14:15:25 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:15:25 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:15:25 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:15:25 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:15:25 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:15:25 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:16:23 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/auth/login
+2025-12-09 14:16:23 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:16:23 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/auth/login
+2025-12-09 14:16:34 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:16:34 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:16:34 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:16:34 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: AuthController.login(..)
+2025-12-09 14:16:34 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: AuthController.login(..) with arguments: [com.makerspace.makerspaceapp.dto.LoginRequest@60d923cd]
+2025-12-09 14:16:34 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:16:34 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:16:34 - o.s.s.a.d.DaoAuthenticationProvider - DEBUG - Authenticated user
+2025-12-09 14:16:34 - c.m.m.aspect.LoggingAspect - DEBUG - Method AuthController.login(..) returned: <200 OK OK,ApiResponse{success=true, message='Login successful', data=com.makerspace.makerspaceapp.dto.LoginResponse@22a7b324},[]>
+2025-12-09 14:16:34 - c.m.m.aspect.LoggingAspect - INFO  - Method AuthController.login(..) executed in 209 ms
+2025-12-09 14:16:54 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:16:54 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:16:54 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:16:54 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: AuthController.login(..)
+2025-12-09 14:16:54 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: AuthController.login(..) with arguments: [com.makerspace.makerspaceapp.dto.LoginRequest@1592ff14]
+2025-12-09 14:16:54 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:16:54 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:16:54 - o.s.s.a.d.DaoAuthenticationProvider - DEBUG - Authenticated user
+2025-12-09 14:16:54 - c.m.m.aspect.LoggingAspect - DEBUG - Method AuthController.login(..) returned: <200 OK OK,ApiResponse{success=true, message='Login successful', data=com.makerspace.makerspaceapp.dto.LoginResponse@5a59f989},[]>
+2025-12-09 14:16:54 - c.m.m.aspect.LoggingAspect - INFO  - Method AuthController.login(..) executed in 166 ms
+2025-12-09 14:17:15 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:17:15 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:17:15 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:17:15 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:17:15 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:17:15 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:17:43 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/users
+2025-12-09 14:17:43 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:17:43 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:17:43 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /error
+2025-12-09 14:17:43 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:17:43 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:17:51 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/users/1
+2025-12-09 14:17:51 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:17:51 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:17:51 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /error
+2025-12-09 14:17:51 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:17:51 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:18:04 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:18:04 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:18:04 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:18:32 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:18:32 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:18:32 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:18:32 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: AuthController.login(..)
+2025-12-09 14:18:32 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: AuthController.login(..) with arguments: [com.makerspace.makerspaceapp.dto.LoginRequest@3666fb7d]
+2025-12-09 14:18:32 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:18:32 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:18:33 - o.s.s.a.d.DaoAuthenticationProvider - DEBUG - Authenticated user
+2025-12-09 14:18:33 - c.m.m.aspect.LoggingAspect - DEBUG - Method AuthController.login(..) returned: <200 OK OK,ApiResponse{success=true, message='Login successful', data=com.makerspace.makerspaceapp.dto.LoginResponse@5d5a4779},[]>
+2025-12-09 14:18:33 - c.m.m.aspect.LoggingAspect - INFO  - Method AuthController.login(..) executed in 129 ms
+2025-12-09 14:19:01 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:19:01 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:19:02 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:19:02 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:19:02 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:19:02 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:20:08 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/auth/login
+2025-12-09 14:20:08 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:20:08 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/auth/login
+2025-12-09 14:20:45 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/auth/login
+2025-12-09 14:20:45 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:20:45 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/auth/login
+2025-12-09 14:20:45 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: AuthController.login(..)
+2025-12-09 14:20:45 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: AuthController.login(..) with arguments: [com.makerspace.makerspaceapp.dto.LoginRequest@7162c3fc]
+2025-12-09 14:20:45 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:20:45 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:20:45 - o.s.s.a.d.DaoAuthenticationProvider - DEBUG - Authenticated user
+2025-12-09 14:20:45 - c.m.m.aspect.LoggingAspect - DEBUG - Method AuthController.login(..) returned: <200 OK OK,ApiResponse{success=true, message='Login successful', data=com.makerspace.makerspaceapp.dto.LoginResponse@39a59748},[]>
+2025-12-09 14:20:45 - c.m.m.aspect.LoggingAspect - INFO  - Method AuthController.login(..) executed in 127 ms
+2025-12-09 14:21:28 - o.s.security.web.FilterChainProxy - DEBUG - Securing PUT /api/users
+2025-12-09 14:21:28 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:21:28 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:21:28 - o.s.security.web.FilterChainProxy - DEBUG - Securing PUT /error
+2025-12-09 14:21:28 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:21:28 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:21:39 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:21:39 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:21:39 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:21:39 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:21:39 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:21:39 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:21:50 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/users
+2025-12-09 14:21:50 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:21:50 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:21:50 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /error
+2025-12-09 14:21:50 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:21:50 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:22:17 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/tools
+2025-12-09 14:22:17 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:22:17 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:22:17 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/tools
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: ToolController.getAllTools()
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: ToolController.getAllTools() with arguments: []
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: ToolService.getAllTools()
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: ToolService.getAllTools() with arguments: []
+2025-12-09 14:22:17 - org.hibernate.SQL - DEBUG - 
+    select
+        t1_0."TOOL_ID",
+        t1_0."AVAILABILITY_STATUS",
+        t1_0."CATEGORY",
+        t1_0."IMAGE_URL",
+        t1_0."MAKERSPACE_ID",
+        t1_0."NAME",
+        t1_0."TOOL_CONDITION" 
+    from
+        "TOOL" t1_0
+2025-12-09 14:22:17 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0 
+    where
+        m1_0."MAKERSPACE_ID"=?
+2025-12-09 14:22:17 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0 
+    where
+        m1_0."MAKERSPACE_ID"=?
+2025-12-09 14:22:17 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0 
+    where
+        m1_0."MAKERSPACE_ID"=?
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - DEBUG - Method ToolService.getAllTools() returned: [com.makerspace.makerspaceapp.dto.ToolResponse@777fcddb, com.makerspace.makerspaceapp.dto.ToolResponse@67309c9a, com.makerspace.makerspaceapp.dto.ToolResponse@6f4c2651, com.makerspace.makerspaceapp.dto.ToolResponse@18ee6eac]
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - INFO  - Method ToolService.getAllTools() executed in 79 ms
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - DEBUG - Method ToolController.getAllTools() returned: <200 OK OK,ApiResponse{success=true, message='Tools retrieved successfully', data=[com.makerspace.makerspaceapp.dto.ToolResponse@777fcddb, com.makerspace.makerspaceapp.dto.ToolResponse@67309c9a, com.makerspace.makerspaceapp.dto.ToolResponse@6f4c2651, com.makerspace.makerspaceapp.dto.ToolResponse@18ee6eac]},[]>
+2025-12-09 14:22:17 - c.m.m.aspect.LoggingAspect - INFO  - Method ToolController.getAllTools() executed in 82 ms
+2025-12-09 14:22:33 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/users
+2025-12-09 14:22:33 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:22:33 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:22:33 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /error
+2025-12-09 14:22:33 - o.s.s.w.a.AnonymousAuthenticationFilter - DEBUG - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-09 14:22:33 - o.s.s.w.a.Http403ForbiddenEntryPoint - DEBUG - Pre-authenticated entry point called. Rejecting access
+2025-12-09 14:26:16 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/makerpaces
+2025-12-09 14:26:16 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:26:16 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:26:16 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/makerpaces
+2025-12-09 14:26:22 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/makerpace
+2025-12-09 14:26:22 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:26:22 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:26:22 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/makerpace
+2025-12-09 14:26:41 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/events
+2025-12-09 14:26:41 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:26:41 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:26:41 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/events
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: EventController.getAllEvents()
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: EventController.getAllEvents() with arguments: []
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: EventService.getAllEvents()
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: EventService.getAllEvents() with arguments: []
+2025-12-09 14:26:41 - org.hibernate.SQL - DEBUG - 
+    select
+        e1_0."EVENT_ID",
+        e1_0."CAPACITY",
+        e1_0."CREATED_BY",
+        e1_0."DESCRIPTION",
+        e1_0."EVENT_DATE",
+        e1_0."LOCATION",
+        e1_0."MAKERSPACE_ID",
+        e1_0."TITLE",
+        e1_0."TYPE" 
+    from
+        "EVENT" e1_0
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - DEBUG - Method EventService.getAllEvents() returned: [com.makerspace.makerspaceapp.model.Event@1e48aa21, com.makerspace.makerspaceapp.model.Event@39f5fcbb]
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - INFO  - Method EventService.getAllEvents() executed in 30 ms
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - DEBUG - Method EventController.getAllEvents() returned: [com.makerspace.makerspaceapp.model.Event@1e48aa21, com.makerspace.makerspaceapp.model.Event@39f5fcbb]
+2025-12-09 14:26:41 - c.m.m.aspect.LoggingAspect - INFO  - Method EventController.getAllEvents() executed in 35 ms
+2025-12-09 14:26:57 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/events/makerspace/1
+2025-12-09 14:26:57 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:26:57 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:26:57 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/events/makerspace/1
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: EventController.getByMakerspace(..)
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: EventController.getByMakerspace(..) with arguments: [1]
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: EventService.getEventsByMakerspace(..)
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: EventService.getEventsByMakerspace(..) with arguments: [1]
+2025-12-09 14:26:57 - org.hibernate.SQL - DEBUG - 
+    select
+        e1_0."EVENT_ID",
+        e1_0."CAPACITY",
+        e1_0."CREATED_BY",
+        e1_0."DESCRIPTION",
+        e1_0."EVENT_DATE",
+        e1_0."LOCATION",
+        e1_0."MAKERSPACE_ID",
+        e1_0."TITLE",
+        e1_0."TYPE" 
+    from
+        "EVENT" e1_0 
+    where
+        e1_0."MAKERSPACE_ID"=?
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - DEBUG - Method EventService.getEventsByMakerspace(..) returned: []
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - INFO  - Method EventService.getEventsByMakerspace(..) executed in 20 ms
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - DEBUG - Method EventController.getByMakerspace(..) returned: []
+2025-12-09 14:26:57 - c.m.m.aspect.LoggingAspect - INFO  - Method EventController.getByMakerspace(..) executed in 25 ms
+2025-12-09 14:27:05 - o.s.security.web.FilterChainProxy - DEBUG - Securing PUT /api/makerspaces/24
+2025-12-09 14:27:05 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:27:05 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:27:05 - o.s.security.web.FilterChainProxy - DEBUG - Secured PUT /api/makerspaces/24
+2025-12-09 14:27:11 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/makerspaces/24
+2025-12-09 14:27:11 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:27:11 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:27:11 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/makerspaces/24
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MakerspaceController.getById(..)
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MakerspaceController.getById(..) with arguments: [24]
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MakerspaceService.getById(..)
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MakerspaceService.getById(..) with arguments: [24]
+2025-12-09 14:27:11 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0 
+    where
+        m1_0."MAKERSPACE_ID"=?
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - DEBUG - Method MakerspaceService.getById(..) returned: com.makerspace.makerspaceapp.dto.MakerspaceResponse@7024834c
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - INFO  - Method MakerspaceService.getById(..) executed in 21 ms
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - DEBUG - Method MakerspaceController.getById(..) returned: <200 OK OK,ApiResponse{success=true, message='Makerspace retrieved successfully', data=com.makerspace.makerspaceapp.dto.MakerspaceResponse@7024834c},[]>
+2025-12-09 14:27:11 - c.m.m.aspect.LoggingAspect - INFO  - Method MakerspaceController.getById(..) executed in 24 ms
+2025-12-09 14:27:16 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/makerspaces
+2025-12-09 14:27:16 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:27:16 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:27:16 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/makerspaces
+2025-12-09 14:27:16 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MakerspaceController.getAll()
+2025-12-09 14:27:16 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MakerspaceController.getAll() with arguments: []
+2025-12-09 14:27:16 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MakerspaceService.getAll()
+2025-12-09 14:27:16 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MakerspaceService.getAll() with arguments: []
+2025-12-09 14:27:17 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0
+2025-12-09 14:27:17 - c.m.m.aspect.LoggingAspect - DEBUG - Method MakerspaceService.getAll() returned: [com.makerspace.makerspaceapp.dto.MakerspaceResponse@130b91c8, com.makerspace.makerspaceapp.dto.MakerspaceResponse@6fffa36c, com.makerspace.makerspaceapp.dto.MakerspaceResponse@6f9e30e9]
+2025-12-09 14:27:17 - c.m.m.aspect.LoggingAspect - INFO  - Method MakerspaceService.getAll() executed in 13 ms
+2025-12-09 14:27:17 - c.m.m.aspect.LoggingAspect - DEBUG - Method MakerspaceController.getAll() returned: <200 OK OK,ApiResponse{success=true, message='Makerspaces retrieved successfully', data=[com.makerspace.makerspaceapp.dto.MakerspaceResponse@130b91c8, com.makerspace.makerspaceapp.dto.MakerspaceResponse@6fffa36c, com.makerspace.makerspaceapp.dto.MakerspaceResponse@6f9e30e9]},[]>
+2025-12-09 14:27:17 - c.m.m.aspect.LoggingAspect - INFO  - Method MakerspaceController.getAll() executed in 15 ms
+2025-12-09 14:27:29 - o.s.security.web.FilterChainProxy - DEBUG - Securing GET /api/makerspaces/24
+2025-12-09 14:27:29 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:27:29 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:27:29 - o.s.security.web.FilterChainProxy - DEBUG - Secured GET /api/makerspaces/24
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MakerspaceController.getById(..)
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MakerspaceController.getById(..) with arguments: [24]
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MakerspaceService.getById(..)
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MakerspaceService.getById(..) with arguments: [24]
+2025-12-09 14:27:29 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0 
+    where
+        m1_0."MAKERSPACE_ID"=?
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - DEBUG - Method MakerspaceService.getById(..) returned: com.makerspace.makerspaceapp.dto.MakerspaceResponse@2255e8e2
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - INFO  - Method MakerspaceService.getById(..) executed in 12 ms
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - DEBUG - Method MakerspaceController.getById(..) returned: <200 OK OK,ApiResponse{success=true, message='Makerspace retrieved successfully', data=com.makerspace.makerspaceapp.dto.MakerspaceResponse@2255e8e2},[]>
+2025-12-09 14:27:29 - c.m.m.aspect.LoggingAspect - INFO  - Method MakerspaceController.getById(..) executed in 20 ms
+2025-12-09 14:28:45 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/bookings
+2025-12-09 14:28:45 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:28:45 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:28:45 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/bookings
+2025-12-09 14:28:45 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: BookingController.createBooking(..)
+2025-12-09 14:28:45 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: BookingController.createBooking(..) with arguments: [com.makerspace.makerspaceapp.dto.BookingRequest@2a5ceab4]
+2025-12-09 14:28:45 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: BookingService.createBooking(..)
+2025-12-09 14:28:46 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: BookingService.createBooking(..) with arguments: [com.makerspace.makerspaceapp.dto.BookingRequest@2a5ceab4]
+2025-12-09 14:28:46 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        r1_0."ID",
+        r1_0."NAME",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    left join
+        "ROLES" r1_0 
+            on r1_0."ID"=u1_0."ROLE_ID" 
+    where
+        u1_0."USER_ID"=?
+2025-12-09 14:28:46 - c.m.m.aspect.LoggingAspect - ERROR - Method BookingService.createBooking(..) threw exception: User not found with id: 2
+2025-12-09 14:28:46 - c.m.m.aspect.LoggingAspect - ERROR - Method BookingController.createBooking(..) threw exception: User not found with id: 2
+2025-12-09 14:28:51 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/bookings
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:28:51 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/bookings
+2025-12-09 14:28:51 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: BookingController.createBooking(..)
+2025-12-09 14:28:51 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: BookingController.createBooking(..) with arguments: [com.makerspace.makerspaceapp.dto.BookingRequest@774adb32]
+2025-12-09 14:28:51 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: BookingService.createBooking(..)
+2025-12-09 14:28:51 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: BookingService.createBooking(..) with arguments: [com.makerspace.makerspaceapp.dto.BookingRequest@774adb32]
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        r1_0."ID",
+        r1_0."NAME",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    left join
+        "ROLES" r1_0 
+            on r1_0."ID"=u1_0."ROLE_ID" 
+    where
+        u1_0."USER_ID"=?
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        t1_0."TOOL_ID",
+        t1_0."AVAILABILITY_STATUS",
+        t1_0."CATEGORY",
+        t1_0."IMAGE_URL",
+        t1_0."MAKERSPACE_ID",
+        t1_0."NAME",
+        t1_0."TOOL_CONDITION" 
+    from
+        "TOOL" t1_0 
+    where
+        t1_0."TOOL_ID"=?
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        m1_0."MAKERSPACE_ID",
+        m1_0."CAPACITY",
+        m1_0."CONTACT_EMAIL",
+        m1_0."DESCRIPTION",
+        m1_0."LOCATION",
+        m1_0."NAME" 
+    from
+        "MAKERSPACE" m1_0 
+    where
+        m1_0."MAKERSPACE_ID"=?
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        b1_0."BOOKING_ID",
+        b1_0."END_TIME",
+        b1_0."MAKERSPACE_ID",
+        b1_0."PAYMENT_ID",
+        b1_0."START_TIME",
+        b1_0."STATUS",
+        b1_0."TOOL_ID",
+        b1_0."USER_ID" 
+    from
+        "BOOKING" b1_0 
+    where
+        b1_0."TOOL_ID"=? 
+        and b1_0."STATUS"!='CANCELLED' 
+        and (
+            (
+                b1_0."START_TIME"<=? 
+                and b1_0."END_TIME">=?
+            )
+        )
+2025-12-09 14:28:51 - org.hibernate.SQL - DEBUG - 
+    select
+        "BOOKING_SEQ".nextval 
+    from
+        dual
+2025-12-09 14:28:52 - c.m.m.aspect.LoggingAspect - DEBUG - Method BookingService.createBooking(..) returned: com.makerspace.makerspaceapp.dto.BookingResponse@41121dd3
+2025-12-09 14:28:52 - c.m.m.aspect.LoggingAspect - INFO  - Method BookingService.createBooking(..) executed in 96 ms
+2025-12-09 14:28:52 - org.hibernate.SQL - DEBUG - 
+    insert 
+    into
+        "BOOKING"
+        ("END_TIME", "MAKERSPACE_ID", "PAYMENT_ID", "START_TIME", "STATUS", "TOOL_ID", "USER_ID", "BOOKING_ID") 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-12-09 14:28:52 - org.hibernate.SQL - DEBUG - 
+    update
+        "TOOL" 
+    set
+        "AVAILABILITY_STATUS"=?,
+        "CATEGORY"=?,
+        "IMAGE_URL"=?,
+        "MAKERSPACE_ID"=?,
+        "NAME"=?,
+        "TOOL_CONDITION"=? 
+    where
+        "TOOL_ID"=?
+2025-12-09 14:28:52 - c.m.m.aspect.LoggingAspect - DEBUG - Method BookingController.createBooking(..) returned: <201 CREATED Created,ApiResponse{success=true, message='Booking created successfully', data=com.makerspace.makerspaceapp.dto.BookingResponse@41121dd3},[]>
+2025-12-09 14:28:52 - c.m.m.aspect.LoggingAspect - INFO  - Method BookingController.createBooking(..) executed in 142 ms
+2025-12-09 14:29:41 - o.s.security.web.FilterChainProxy - DEBUG - Securing POST /api/memberships
+2025-12-09 14:29:41 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        u1_0."ROLE_ID",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    where
+        u1_0."EMAIL"=?
+2025-12-09 14:29:41 - org.hibernate.SQL - DEBUG - 
+    select
+        r1_0."ID",
+        r1_0."NAME" 
+    from
+        "ROLES" r1_0 
+    where
+        r1_0."ID"=?
+2025-12-09 14:29:41 - o.s.security.web.FilterChainProxy - DEBUG - Secured POST /api/memberships
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MembershipController.createMembership(..)
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MembershipController.createMembership(..) with arguments: [com.makerspace.makerspaceapp.dto.MembershipRequest@28d2777f]
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - INFO  - Starting method: MembershipService.createMembership(..)
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - DEBUG - Entering method: MembershipService.createMembership(..) with arguments: [com.makerspace.makerspaceapp.dto.MembershipRequest@28d2777f]
+2025-12-09 14:29:41 - org.hibernate.SQL - DEBUG - 
+    select
+        u1_0."USER_ID",
+        u1_0."CREATED_AT",
+        u1_0."EMAIL",
+        u1_0."NAME",
+        u1_0."PASSWORD",
+        u1_0."PHONE",
+        r1_0."ID",
+        r1_0."NAME",
+        u1_0."SKILLS" 
+    from
+        "USERS" u1_0 
+    left join
+        "ROLES" r1_0 
+            on r1_0."ID"=u1_0."ROLE_ID" 
+    where
+        u1_0."USER_ID"=?
+2025-12-09 14:29:41 - org.hibernate.SQL - DEBUG - 
+    select
+        "MEMBERSHIP_SEQ".nextval 
+    from
+        dual
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - DEBUG - Method MembershipService.createMembership(..) returned: com.makerspace.makerspaceapp.model.Membership@2cddec4f
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - INFO  - Method MembershipService.createMembership(..) executed in 20 ms
+2025-12-09 14:29:41 - org.hibernate.SQL - DEBUG - 
+    insert 
+    into
+        "MEMBERSHIP"
+        ("END_DATE", "PLAN_TYPE", "PRICE", "START_DATE", "STATUS", "USER_ID", "MEMBERSHIP_ID") 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - DEBUG - Method MembershipController.createMembership(..) returned: <201 CREATED Created,ApiResponse{success=true, message='Membership created successfully', data=com.makerspace.makerspaceapp.model.Membership@2cddec4f},[]>
+2025-12-09 14:29:41 - c.m.m.aspect.LoggingAspect - INFO  - Method MembershipController.createMembership(..) executed in 53 ms
+2025-12-09 15:37:19 - o.s.o.j.LocalContainerEntityManagerFactoryBean - INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-09 15:37:19 - com.zaxxer.hikari.HikariDataSource - INFO  - HikariPool-1 - Shutdown initiated...
+2025-12-09 15:37:19 - com.zaxxer.hikari.HikariDataSource - INFO  - HikariPool-1 - Shutdown completed.

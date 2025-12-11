@@ -1,34 +1,16 @@
-package com.makerspace.makerspaceapp.model;
+package com.makerspace.makerspaceapp.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "SUPPLIER")
-public class Supplier {
+public class SupplierResponse {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "supplier_seq")
-    @SequenceGenerator(name = "supplier_seq", sequenceName = "SUPPLIER_SEQ", allocationSize = 1)
-    @Column(name = "SUPPLIER_ID")
     private Long supplierId;
-    
-    @Column(name = "NAME")
     private String name;
-    
-    @Column(name = "CONTACT")
     private String contact;
-    
-    @Column(name = "EMAIL")
     private String email;
-    
-    @Column(name = "ADDRESS")
     private String address;
-    
-    @Column(name = "RATING")
     private Double rating;
 
     // Constructors
-    public Supplier() {}
+    public SupplierResponse() {}
 
     // Getters and Setters
     public Long getSupplierId() {

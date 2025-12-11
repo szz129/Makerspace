@@ -1,15 +1,15 @@
 package com.makerspace.makerspaceapp.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.makerspace.makerspaceapp.exception.ResourceNotFoundException;
 import com.makerspace.makerspaceapp.model.Payment;
 import com.makerspace.makerspaceapp.model.User;
 import com.makerspace.makerspaceapp.repository.PaymentRepository;
 import com.makerspace.makerspaceapp.repository.UserRepository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class PaymentService {
